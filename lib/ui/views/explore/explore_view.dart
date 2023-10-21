@@ -62,6 +62,7 @@ class ExploreView extends StackedView<ExploreViewModel> {
                         child: ExploreCardTwo(
                           index: index,
                           image: viewModel.placesList[index].image,
+                          title: viewModel.placesList[index].location,
                         ),
                       ),
                     ),

@@ -23,7 +23,7 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return Scaffold(
       backgroundColor: kcBlack,
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: kcBlack,

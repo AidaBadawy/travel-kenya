@@ -1,0 +1,14 @@
+const String icMessagePlus = 'assets/icons/message_plus.svg';
+const String icBeach = 'assets/icons/beach.svg';
+const String icSunset = 'assets/icons/sunset.svg';
+const String icTent = 'assets/icons/tent.svg';
+const String icWildlife = 'assets/icons/wildlife.svg';
+const String icCulture = 'assets/icons/culture.svg';
+const String icArrowRight = 'assets/icons/arrow_right.svg';
+const String iclight = 'assets/icons/light.svg';
+const String icDark = 'assets/icons/dark.svg';
+const String icEngland = 'assets/icons/england.svg';
+const String imLion = 'assets/images/lion.jpeg';
+const String imMaasai = 'assets/images/maasai.jpeg';
+const String imBallon = 'assets/images/ballon.jpeg';
+const String imBuilding = 'assets/images/building.jpeg';

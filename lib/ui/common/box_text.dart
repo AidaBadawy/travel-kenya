@@ -385,12 +385,12 @@ class ManropeText extends StatelessWidget {
         super(key: key);
 
   ManropeText.medium(this.text, this.fontSize, this.textColor,
-      {Key? key, TextAlign align = TextAlign.start})
+      {Key? key, TextAlign align = TextAlign.start, double? letterSpacing})
       : style = GoogleFonts.manrope(
-          fontSize: fontSize,
-          fontWeight: FontWeight.w500,
-          color: textColor,
-        ),
+            fontSize: fontSize,
+            fontWeight: FontWeight.w500,
+            color: textColor,
+            letterSpacing: letterSpacing),
         alignment = align,
         super(key: key);
 

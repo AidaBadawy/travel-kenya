@@ -1,5 +1,6 @@
 import 'package:stacked/stacked.dart';
 import 'package:travel_kenya/model/category_model.dart';
+import 'package:travel_kenya/model/notification_model.dart';
 import 'package:travel_kenya/model/place_model.dart';
 import 'package:travel_kenya/ui/common/enums.dart';
 
@@ -23,7 +24,6 @@ class HomeService with ListenableServiceMixin {
         longitude: 0.0,
       ),
     ),
-
     CategoryModel(
       title: "Pirates Beach",
       categoryType: CategoryType.explore,
@@ -91,7 +91,6 @@ class HomeService with ListenableServiceMixin {
         longitude: 0.0,
       ),
     ),
-
     CategoryModel(
       categoryType: CategoryType.explore,
       title: "Lake Nakuru",
@@ -162,18 +161,35 @@ class HomeService with ListenableServiceMixin {
         longitude: 0.0,
       ),
     )
+  ];
 
-    //   PlaceModel(
-    //       image:
-    //           "https://images.unsplash.com/photo-1515658323406-25d61c141a6e?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGtlbnlhJTIwY3VsdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
-    //       location: "Maasai Culture",
-    //       description: "Excepteur nulla consectetur dolor commodo. Mollit do ad proident anim. Fugiat commodo incididunt exercitation est esse ut ad dolor excepteur incididunt exercitation enim aute.",
-    //       tags: ["Culture"]),
-    //   PlaceModel(
-    //       image:
-    //           "https://images.unsplash.com/photo-1602094777645-5701b6128003?auto=format&fit=crop&q=80&w=2934&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    //       location: "Lamu Culture",
-    //       description: "Eu aliquip deserunt tempor fugiat non id Lorem tempor proident proident laborum cillum. Adipisicing veniam ad eu sint labore excepteur ut pariatur enim ad ipsum incididunt. Laborum est cupidatat nulla anim laboris sint.",
-    //       tags: ["Culture"])
+  List<NotificationModel> notificationList = [
+    NotificationModel(
+      id: "1",
+      title: "Aidarus Badawy",
+      description: "Trip to Maasai Mara",
+      image:
+          "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      notificationType: NotificationType.mention,
+      date: DateTime.now(),
+    ),
+    NotificationModel(
+      id: "1",
+      title: "Aidarus Badawy",
+      description: "Maasai Mara Blog",
+      image:
+          "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      notificationType: NotificationType.comment,
+      date: DateTime.now(),
+    ),
+    NotificationModel(
+      id: "1",
+      title: "Aidarus Badawy",
+      description: "Lake Nakuru Trip",
+      image:
+          "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      notificationType: NotificationType.request,
+      date: DateTime.now(),
+    )
   ];
 }

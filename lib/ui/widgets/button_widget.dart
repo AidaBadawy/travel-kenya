@@ -18,33 +18,36 @@ class ButtonWidget extends StatelessWidget {
   final double? iconHeight;
   final double? iconSpacing;
   final AlignmentEnum? iconAlign;
+  final bool? isOutline;
 
-  const ButtonWidget(
-      {super.key,
-      required this.onPressed,
-      required this.isBusy,
-      required this.text,
-      required this.btnColor,
-      required this.textColor,
-      required this.radius,
-      required this.height,
-      required this.fontSize,
-      required this.hasIcon,
-      this.icon,
-      this.iconColor,
-      this.iconHeight,
-      this.iconSpacing = 5,
-      this.iconAlign = AlignmentEnum.right});
+  const ButtonWidget({
+    super.key,
+    required this.onPressed,
+    required this.isBusy,
+    required this.text,
+    required this.btnColor,
+    required this.textColor,
+    required this.radius,
+    required this.height,
+    required this.fontSize,
+    required this.hasIcon,
+    this.icon,
+    this.iconColor,
+    this.iconHeight,
+    this.iconSpacing = 5,
+    this.iconAlign = AlignmentEnum.right,
+    this.isOutline = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      color: btnColor,
+      color: isOutline! ? null : btnColor,
       height: height,
       // minWidth: 100,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(radius),
-      ),
+          borderRadius: BorderRadius.circular(radius),
+          side: BorderSide(color: btnColor)),
       child: hasIcon
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,

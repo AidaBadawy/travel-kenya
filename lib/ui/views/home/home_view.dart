@@ -27,9 +27,7 @@ class HomeView extends StackedView<HomeViewModel> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
-              viewModel.navigateToActivityPage();
-            },
+            onPressed: () => viewModel.navigateToActivityPage(),
             icon: SvgPicture.asset(
               icMessagePlus,
               color: theme.colorScheme.onBackground,

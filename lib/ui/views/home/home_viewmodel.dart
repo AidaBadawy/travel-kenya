@@ -8,7 +8,7 @@ import 'package:travel_kenya/app/app_export.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:travel_kenya/ui/views/activity/activity_view.dart';
 
-class HomeViewModel extends BaseViewModel {
+class HomeViewModel extends ReactiveViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
   final _navigationService = locator<NavigationService>();
@@ -108,8 +108,23 @@ class HomeViewModel extends BaseViewModel {
   }
 
   navigateToActivityPage() {
+    // _navigationService.navigateToActivityView(
+    //   null,
+    //   true,
+    //   {},
+    //   (context, animation, secondaryAnimation, child) {
+    //     // Define your transition function here.
+    //     // You can return a custom transition effect for the route.
+    //     return child;
+    //   },
+    //   // Transition.rightToLeft
+    // );
+
+    notifyListeners();
+
     _navigationService.navigateWithTransition(const ActivityView(),
         transitionStyle: Transition.rightToLeft);
+    notifyListeners();
   }
 
   navigateToExplorePage(context) {
@@ -141,4 +156,9 @@ class HomeViewModel extends BaseViewModel {
     _isRevealed = !_isRevealed;
     notifyListeners();
   }
+
+  @override
+  List<ListenableServiceMixin> get listenableServices => [
+        _homeService,
+      ];
 }

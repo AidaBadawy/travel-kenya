@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stacked/stacked.dart';
 import 'package:travel_kenya/app/app_export.dart';
+import 'package:travel_kenya/ui/widgets/chat_card.dart';
+import 'package:travel_kenya/ui/widgets/notification_card.dart';
 
 import 'activity_viewmodel.dart';
 
@@ -52,11 +53,35 @@ class ActivityView extends StackedView<ActivityViewModel> {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: TabBarView(
           children: [
-            Container(
-              color: Colors.red,
+            ListView.separated(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              itemBuilder: (context, index) {
+                return NotificationCard(
+                  notification: viewModel.notificationList[index],
+                  textColor: theme.colorScheme.onBackground,
+                  cardColor: theme.colorScheme.primary,
+                  textColorTwo: theme.colorScheme.surface,
+                );
+              },
+              separatorBuilder: (context, index) {
+                return verticalSpaceMedium;
+              },
+              itemCount: viewModel.chatList.length,
             ),
-            Container(
-              color: Colors.purple,
+            ListView.separated(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              itemBuilder: (context, index) {
+                return ChatCard(
+                  chat: viewModel.chatList[index],
+                  textColor: theme.colorScheme.onBackground,
+                  cardColor: theme.colorScheme.primary,
+                  textColorTwo: theme.colorScheme.surface,
+                );
+              },
+              separatorBuilder: (context, index) {
+                return verticalSpaceMedium;
+              },
+              itemCount: viewModel.chatList.length,
             ),
           ],
         ),

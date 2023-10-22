@@ -1,3 +1,4 @@
+import 'package:travel_kenya/services/chat_service.dart';
 import 'package:travel_kenya/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:travel_kenya/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:travel_kenya/ui/views/home/home_view.dart';
@@ -28,6 +29,7 @@ import 'package:travel_kenya/services/home_service.dart';
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: HomeService),
+    LazySingleton(classType: ChatService),
 // @stacked-service
   ],
   bottomsheets: [

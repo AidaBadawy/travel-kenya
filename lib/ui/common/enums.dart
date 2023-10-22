@@ -19,3 +19,17 @@ enum CategoryType {
   explore,
   event,
 }
+
+enum MessageType {
+  text,
+  image,
+  audio,
+  video,
+  log,
+}
+
+enum NotificationType {
+  mention,
+  comment,
+  request,
+}

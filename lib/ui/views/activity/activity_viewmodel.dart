@@ -1,3 +1,3 @@
 import 'package:stacked/stacked.dart';
 
-class ActivityViewModel extends BaseViewModel {}
+class ActivityViewModel extends ReactiveViewModel {}

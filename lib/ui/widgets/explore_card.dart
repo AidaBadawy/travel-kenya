@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:skeletons/skeletons.dart';
+import 'package:travel_kenya/model/category_model.dart';
+import 'package:travel_kenya/ui/common/app_colors.dart';
 import 'package:travel_kenya/ui/common/app_images.dart';
 import 'package:travel_kenya/ui/common/box_text.dart';
 import 'package:travel_kenya/ui/common/styles.dart';
@@ -11,16 +13,13 @@ import 'package:travel_kenya/ui/widgets/skeleton_widget.dart';
 class ExploreCardOne extends StatelessWidget {
   final Color titleColor;
   final Size size;
-  final String title;
-  final String description;
-  final String image;
+  final CategoryModel explore;
+
   const ExploreCardOne(
       {super.key,
       required this.titleColor,
       required this.size,
-      required this.title,
-      required this.description,
-      required this.image});
+      required this.explore});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class ExploreCardOne extends StatelessWidget {
           height: 140,
           width: 110,
           child: CachedNetworkImage(
-            imageUrl: image,
+            imageUrl: explore.images.first,
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
@@ -55,7 +54,7 @@ class ExploreCardOne extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 text: TextSpan(
-                    text: title,
+                    text: explore.title,
                     // recognizer: TapGestureRecognizer()
                     //   ..onTap = () {
                     //     viewModel.addApartment();
@@ -63,7 +62,6 @@ class ExploreCardOne extends StatelessWidget {
                     style: manropeSemiBold.copyWith(
                       color: titleColor,
                       fontSize: 16,
-                      // decoration: TextDecoration.underline,
                     )),
               ),
               verticalSpaceSmall,
@@ -71,11 +69,10 @@ class ExploreCardOne extends StatelessWidget {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 text: TextSpan(
-                  text: description,
+                  text: explore.description,
                   style: manropeRegular.copyWith(
                     color: titleColor,
                     fontSize: 14,
-                    // decoration: TextDecoration.underline,
                   ),
                 ),
               ),
@@ -112,32 +109,62 @@ class ExploreCardOne extends StatelessWidget {
 }
 
 class ExploreCardTwo extends StatelessWidget {
-  final String image;
   final int index;
-  const ExploreCardTwo({super.key, required this.image, required this.index});
+  final CategoryModel explore;
+
+  const ExploreCardTwo({
+    super.key,
+    required this.explore,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // return CachedNetworkImage(
-    //   imageUrl: image,
-    //   imageBuilder: (context, imageProvider) => Container(
-    //     decoration: BoxDecoration(
-    //       borderRadius: BorderRadius.circular(8),
-    //       image: DecorationImage(
-    //         image: imageProvider,
-    //         fit: BoxFit.cover,
-    //       ),
-    //     ),
-    //   ),
-    //   placeholder: (context, url) => const SkeletonAvatar(),
-    //   errorWidget: (context, url, error) => const Icon(Icons.error),
-    // );
-    return CachedNetworkImage(
-      imageUrl: image,
-      placeholder: (context, url) => SkeletonExplore(
-        index: index,
-      ),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
+    return Stack(
+      alignment: Alignment.bottomLeft,
+      children: [
+        CachedNetworkImage(
+          imageUrl: explore.images.first,
+          placeholder: (context, url) => SkeletonExplore(
+            index: index,
+          ),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
+        Positioned.fill(
+          child: Container(
+            padding: const EdgeInsets.all(10.0),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.brown,
+                  Colors.transparent,
+                  Colors.transparent,
+                  Colors.brown
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0, 0, 0.6, 1],
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 5,
+          left: 5,
+          child: RichText(
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            text: TextSpan(
+              text: explore.title,
+              style: manropeSemiBold.copyWith(
+                color: kcWhite,
+                fontSize: 14,
+                // decoration: TextDecoration.underline,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

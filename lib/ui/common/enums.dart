@@ -14,3 +14,8 @@ enum AlignmentEnum {
   right,
   left,
 }
+
+enum CategoryType {
+  explore,
+  event,
+}

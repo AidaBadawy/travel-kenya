@@ -1,27 +1,31 @@
 class PlaceModel {
-  final String image;
-  final String location;
+  final String id;
+  final String name;
   final String description;
-  final List<String> tags;
+  final double latitude;
+  final double longitude;
 
   PlaceModel({
-    required this.image,
-    required this.location,
+    required this.id,
+    required this.name,
     required this.description,
-    required this.tags,
+    required this.latitude,
+    required this.longitude,
   });
 
   factory PlaceModel.fromJson(Map<String, dynamic> json) => PlaceModel(
-        image: json["image"],
-        location: json["location"],
+        id: json["id"],
+        name: json["name"],
         description: json["description"],
-        tags: List<String>.from(json["tags"].map((x) => x)),
+        latitude: json["latitude"],
+        longitude: json["longitude"],
       );
 
   Map<String, dynamic> toJson() => {
-        "image": image,
-        "location": location,
+        "id": id,
+        "name": name,
         "description": description,
-        "tags": List<dynamic>.from(tags.map((x) => x))
+        "latitude": latitude,
+        "longitude": longitude,
       };
 }

@@ -23,6 +23,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ThemeBuilder(
+      // statusBarColorBuilder: (theme) =>
+      //     theme!.appBarTheme.systemOverlayStyle!.statusBarColor,
       defaultThemeMode: ThemeMode.system,
       darkTheme: ThemeData(colorScheme: darkColorScheme),
       lightTheme: ThemeData(colorScheme: lightColorScheme),

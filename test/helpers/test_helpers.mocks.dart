@@ -9,6 +9,8 @@ import 'dart:ui' as _i5;
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i2;
+import 'package:travel_kenya/model/category_model.dart' as _i7;
+import 'package:travel_kenya/services/home_service.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -20,6 +22,16 @@ import 'package:stacked_services/stacked_services.dart' as _i2;
 // ignore_for_file: unnecessary_parenthesis
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
+
+class _FakeDateTime_0 extends _i1.SmartFake implements DateTime {
+  _FakeDateTime_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
 
 /// A class which mocks [NavigationService].
 ///
@@ -647,6 +659,93 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
         Invocation.method(
           #completeDialog,
           [response],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [HomeService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockHomeService extends _i1.Mock implements _i6.HomeService {
+  @override
+  DateTime get now => (super.noSuchMethod(
+        Invocation.getter(#now),
+        returnValue: _FakeDateTime_0(
+          this,
+          Invocation.getter(#now),
+        ),
+        returnValueForMissingStub: _FakeDateTime_0(
+          this,
+          Invocation.getter(#now),
+        ),
+      ) as DateTime);
+
+  @override
+  set now(DateTime? _now) => super.noSuchMethod(
+        Invocation.setter(
+          #now,
+          _now,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  List<_i7.CategoryModel> get placesList => (super.noSuchMethod(
+        Invocation.getter(#placesList),
+        returnValue: <_i7.CategoryModel>[],
+        returnValueForMissingStub: <_i7.CategoryModel>[],
+      ) as List<_i7.CategoryModel>);
+
+  @override
+  set placesList(List<_i7.CategoryModel>? _placesList) => super.noSuchMethod(
+        Invocation.setter(
+          #placesList,
+          _placesList,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  int get listenersCount => (super.noSuchMethod(
+        Invocation.getter(#listenersCount),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  void listenToReactiveValues(List<dynamic>? reactiveValues) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #listenToReactiveValues,
+          [reactiveValues],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
         ),
         returnValueForMissingStub: null,
       );

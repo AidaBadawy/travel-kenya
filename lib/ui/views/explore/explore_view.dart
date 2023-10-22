@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:stacked/stacked.dart';
-import 'package:travel_kenya/ui/common/app_images.dart';
-import 'package:travel_kenya/ui/common/box_text.dart';
-import 'package:travel_kenya/ui/common/ui_helpers.dart';
-import 'package:travel_kenya/ui/widgets/app_drawer.dart';
-import 'package:travel_kenya/ui/widgets/explore_card.dart';
-
+import 'package:travel_kenya/app/app_export.dart';
 import 'explore_viewmodel.dart';
 
 class ExploreView extends StackedView<ExploreViewModel> {
@@ -51,7 +42,7 @@ class ExploreView extends StackedView<ExploreViewModel> {
                 crossAxisCount: 2,
                 mainAxisSpacing: 4,
                 crossAxisSpacing: 4,
-                itemCount: viewModel.placesList.length,
+                itemCount: viewModel.exploreList.length,
                 itemBuilder: (context, index) {
                   return AnimationConfiguration.staggeredGrid(
                     position: index,
@@ -61,8 +52,7 @@ class ExploreView extends StackedView<ExploreViewModel> {
                       child: FadeInAnimation(
                         child: ExploreCardTwo(
                           index: index,
-                          image: viewModel.placesList[index].image,
-                          title: viewModel.placesList[index].location,
+                          explore: viewModel.exploreList[index],
                         ),
                       ),
                     ),
@@ -83,12 +73,9 @@ class ExploreView extends StackedView<ExploreViewModel> {
                       horizontalOffset: MediaQuery.of(context).size.width / 2,
                       child: FadeInAnimation(
                         child: ExploreCardOne(
-                          titleColor: theme.colorScheme.onBackground,
-                          size: size,
-                          image: viewModel.placesList[index].image,
-                          title: viewModel.placesList[index].location,
-                          description: viewModel.placesList[index].description,
-                        ),
+                            titleColor: theme.colorScheme.onBackground,
+                            size: size,
+                            explore: viewModel.exploreList[index]),
                       ),
                     ),
                   );
@@ -96,7 +83,7 @@ class ExploreView extends StackedView<ExploreViewModel> {
                 separatorBuilder: (context, index) {
                   return verticalSpaceMedium;
                 },
-                itemCount: viewModel.placesList.length,
+                itemCount: viewModel.exploreList.length,
               ),
             ),
     );

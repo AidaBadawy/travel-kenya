@@ -1,14 +1,10 @@
+import 'package:autocomplete_textfield_ns/autocomplete_textfield_ns.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_themes/stacked_themes.dart';
 import 'package:travel_kenya/app/app.bottomsheets.dart';
 import 'package:travel_kenya/app/app.dialogs.dart';
-import 'package:travel_kenya/app/app.locator.dart';
 import 'package:travel_kenya/app/app.router.dart';
-import 'package:travel_kenya/model/place_model.dart';
-import 'package:travel_kenya/services/home_service.dart';
-import 'package:travel_kenya/ui/common/app_images.dart';
-import 'package:travel_kenya/ui/common/app_strings.dart';
-import 'package:stacked/stacked.dart';
+import 'package:travel_kenya/app/app_export.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:travel_kenya/ui/views/activity/activity_view.dart';
 
@@ -18,7 +14,7 @@ class HomeViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _homeService = locator<HomeService>();
 
-  List<PlaceModel> get placesList => _homeService.placesList;
+  List<CategoryModel> get placesList => _homeService.placesList;
 
   String get counterLabel => 'Counter is: $_counter';
 
@@ -26,6 +22,9 @@ class HomeViewModel extends BaseViewModel {
 
   bool _isRevealed = false;
   bool get isRevealed => _isRevealed;
+
+  final TextEditingController searchController = TextEditingController();
+  GlobalKey<AutoCompleteTextFieldState<String>> keyController = GlobalKey();
 
   List<String> iconList = [
     icBeach,
@@ -43,8 +42,8 @@ class HomeViewModel extends BaseViewModel {
   int _selectedCategoryInt = 0;
   int get selectedCategoryInt => _selectedCategoryInt;
 
-  List<PlaceModel> _categoryList = [];
-  List<PlaceModel> get categoryList => _categoryList;
+  List<CategoryModel> _categoryList = [];
+  List<CategoryModel> get categoryList => _categoryList;
 
   initHome() {
     _categoryList =

@@ -9,6 +9,7 @@ import 'package:travel_kenya/ui/views/events/events_view.dart';
 import 'package:travel_kenya/ui/views/activity/activity_view.dart';
 import 'package:travel_kenya/ui/views/trip/trip_view.dart';
 import 'package:travel_kenya/ui/views/onboarding/onboarding_view.dart';
+import 'package:travel_kenya/services/home_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -26,7 +27,8 @@ import 'package:travel_kenya/ui/views/onboarding/onboarding_view.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    // @stacked-service
+    LazySingleton(classType: HomeService),
+// @stacked-service
   ],
   bottomsheets: [
     StackedBottomsheet(classType: NoticeSheet),

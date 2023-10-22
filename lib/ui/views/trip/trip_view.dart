@@ -14,7 +14,7 @@ class TripView extends StackedView<TripViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       appBar: AppBar(
         elevation: 0,
       ),

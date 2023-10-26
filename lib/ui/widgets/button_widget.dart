@@ -81,3 +81,45 @@ class ButtonWidget extends StatelessWidget {
     );
   }
 }
+
+class RoundButtonWidget extends StatelessWidget {
+  final Function onPressed;
+  final bool isBusy;
+
+  final Color btnColor;
+
+  final double radius;
+  final double height;
+  final String? icon;
+  final Color? iconColor;
+  final double? iconHeight;
+
+  const RoundButtonWidget({
+    super.key,
+    required this.onPressed,
+    required this.isBusy,
+    required this.btnColor,
+    required this.radius,
+    required this.height,
+    this.icon,
+    this.iconColor,
+    this.iconHeight,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      color: btnColor,
+      height: height,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius),
+          side: BorderSide(color: btnColor)),
+      child: SvgPicture.asset(
+        icon!,
+        color: iconColor,
+        height: iconHeight,
+      ),
+      onPressed: () => isBusy ? () {} : onPressed(),
+    );
+  }
+}

@@ -41,127 +41,131 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
                     ),
                   ),
                 ),
+                // const Positioned(
+                //   top: 50,
+                //   left: 25,
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [],
+                //   ),
+                // ),
                 Positioned(
-                  top: 50,
-                  left: 25,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      DefaultTextStyle(
-                        style: manropeExtraBold.copyWith(
-                            color: kcWhite, fontSize: 40, letterSpacing: .8),
-                        child: AnimatedTextKit(
-                          totalRepeatCount: 1,
-                          onFinished: () {
-                            viewModel.setDisplayTwo(true);
-                          },
-                          animatedTexts: [
-                            TypewriterAnimatedText(
-                              'Explore',
-                              speed: const Duration(milliseconds: 300),
+                  bottom: 10,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    width: size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            DefaultTextStyle(
+                              style: manropeExtraBold.copyWith(
+                                  color: kcWhite,
+                                  fontSize: 40,
+                                  letterSpacing: .8),
+                              child: AnimatedTextKit(
+                                totalRepeatCount: 1,
+                                onFinished: () {
+                                  print("done");
+                                },
+                                onNextBeforePause: (p0, p1) {
+                                  print("pause 1");
+
+                                  viewModel.setDisplayTwo(true);
+                                },
+                                onNext: (p0, p1) {
+                                  print("pause 2");
+                                },
+                                animatedTexts: [
+                                  TypewriterAnimatedText('Explore',
+                                      speed: const Duration(milliseconds: 150),
+                                      cursor: ""),
+                                ],
+                              ),
+                            ),
+                            verticalSpaceTiny,
+                            Visibility(
+                              visible: viewModel.displayTwo,
+                              child: DefaultTextStyle(
+                                style: dancingScript.copyWith(
+                                    color: kcWhite,
+                                    fontSize: 50,
+                                    letterSpacing: .8),
+                                child: AnimatedTextKit(
+                                  // pause: const Duration(milliseconds: 0),
+                                  totalRepeatCount: 1,
+                                  onFinished: () {
+                                    viewModel.setDisplayThree(true);
+                                  },
+                                  animatedTexts: [
+                                    TypewriterAnimatedText('Kenya',
+                                        speed:
+                                            const Duration(milliseconds: 150),
+                                        cursor: ''),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            verticalSpaceTiny,
+                            Visibility(
+                              visible: viewModel.displayThree,
+                              child: DefaultTextStyle(
+                                style: manropeExtraBold.copyWith(
+                                    color: kcWhite,
+                                    fontSize: 40,
+                                    letterSpacing: .8),
+                                child: AnimatedTextKit(
+                                  // pause: const Duration(milliseconds: 0),
+                                  totalRepeatCount: 1,
+                                  animatedTexts: [
+                                    TypewriterAnimatedText(
+                                      'with us.',
+                                      speed: const Duration(milliseconds: 150),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            verticalSpaceSmall,
+                            Row(
+                              children: List.generate(
+                                viewModel.onBoardingList.length,
+                                (index) => Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: index == viewModel.currentPageIndex
+                                          ? kcWhite
+                                          : kcWhite.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    height: 5,
+                                    width: 20,
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                      verticalSpaceTiny,
-                      Visibility(
-                        visible: viewModel.displayTwo,
-                        child: DefaultTextStyle(
-                          style: dancingScript.copyWith(
-                              color: kcWhite, fontSize: 50, letterSpacing: .8),
-                          child: AnimatedTextKit(
-                            pause: const Duration(milliseconds: 400),
-                            totalRepeatCount: 1,
-                            onFinished: () {
-                              viewModel.setDisplayThree(true);
-                            },
-                            animatedTexts: [
-                              TypewriterAnimatedText(
-                                'Kenya',
-                                speed: const Duration(milliseconds: 300),
-                              ),
-                            ],
+                        SizedBox(
+                          width: 60,
+                          child: RoundButtonWidget(
+                            btnColor: theme.colorScheme.secondary,
+                            isBusy: false,
+                            icon: icArrowRight,
+                            iconColor: kcWhite,
+                            onPressed: () => viewModel.navigateToHome(),
+                            height: 60,
+                            radius: 50,
                           ),
-                        ),
-                      ),
-                      verticalSpaceTiny,
-                      Visibility(
-                        visible: viewModel.displayThree,
-                        child: DefaultTextStyle(
-                          style: manropeExtraBold.copyWith(
-                              color: kcWhite, fontSize: 40, letterSpacing: .8),
-                          child: AnimatedTextKit(
-                            pause: const Duration(milliseconds: 400),
-                            totalRepeatCount: 1,
-                            animatedTexts: [
-                              TypewriterAnimatedText(
-                                'with us.',
-                                speed: const Duration(milliseconds: 300),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                Positioned(
-                  bottom: 10,
-                  child: Column(
-                    children: [
-                      Row(
-                        children: List.generate(
-                          viewModel.onBoardingList.length,
-                          (index) => Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: index == viewModel.currentPageIndex
-                                    ? kcWhite
-                                    : kcWhite.withOpacity(.2),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              height: 5,
-                              width: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                      verticalSpaceSmall,
-                      SizedBox(
-                        width: size.width - 50,
-                        child: ButtonWidget(
-                          onPressed: () => viewModel.navigateToHome(),
-                          isBusy: false,
-                          text: "Let's Get Started",
-                          btnColor: theme.colorScheme.secondary,
-                          textColor: kcWhite,
-                          radius: 8,
-                          height: 60,
-                          fontSize: 16,
-                          hasIcon: true,
-                          icon: icArrowRight,
-                          iconColor: kcWhite,
-                          iconSpacing: 8,
-                          // iconHeight: 24,
-                        ),
-                      ),
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 )
-
-                // Container(
-                //   height: 100,
-                //   width: double.infinity,
-                //   decoration: const BoxDecoration(
-                //     color: kcWhite,
-                //     borderRadius: BorderRadius.only(
-                //       topLeft: Radius.circular(15),
-                //       topRight: Radius.circular(15),
-                //     ),
-                //   ),
-                // )
               ],
             ),
           ),

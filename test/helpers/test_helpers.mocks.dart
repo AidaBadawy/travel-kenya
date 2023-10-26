@@ -10,6 +10,7 @@ import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i2;
 import 'package:travel_kenya/model/category_model.dart' as _i7;
+import 'package:travel_kenya/model/notification_model.dart' as _i8;
 import 'package:travel_kenya/services/home_service.dart' as _i6;
 
 // ignore_for_file: type=lint
@@ -702,6 +703,23 @@ class MockHomeService extends _i1.Mock implements _i6.HomeService {
         Invocation.setter(
           #placesList,
           _placesList,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  List<_i8.NotificationModel> get notificationList => (super.noSuchMethod(
+        Invocation.getter(#notificationList),
+        returnValue: <_i8.NotificationModel>[],
+        returnValueForMissingStub: <_i8.NotificationModel>[],
+      ) as List<_i8.NotificationModel>);
+
+  @override
+  set notificationList(List<_i8.NotificationModel>? _notificationList) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #notificationList,
+          _notificationList,
         ),
         returnValueForMissingStub: null,
       );

@@ -21,7 +21,7 @@ class ChatService with ListenableServiceMixin {
         date: DateTime.now(),
         messageType: MessageType.text,
         sender: UserModel(
-            id: "",
+            id: "111",
             name: "Aidarus Badawy",
             image:
                 "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
@@ -40,8 +40,8 @@ class ChatService with ListenableServiceMixin {
         date: DateTime.now(),
         messageType: MessageType.text,
         sender: UserModel(
-            id: "",
-            name: "Aidarus Badawy",
+            id: "222",
+            name: "Swaleh Alwy",
             image:
                 "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
       ),
@@ -60,11 +60,104 @@ class ChatService with ListenableServiceMixin {
         date: DateTime.now(),
         messageType: MessageType.text,
         sender: UserModel(
-            id: "",
+            id: "111",
             name: "Aidarus Badawy",
             image:
                 "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
       ),
+    ),
+  ];
+
+  List<MessageModel> messageList = [
+    MessageModel(
+      id: "",
+      message:
+          "last Cupidatat reprehenderit excepteur nostrud laborum. Id fugiat qui consectetur duis. Excepteur mollit eiusmod deserunt nisi exercitation commodo pariatur et ex exercitation. Eiusmod ad veniam ut excepteur consequat minim eiusmod. Enim minim irure do culpa aliqua. Et deserunt reprehenderit esse aute et aute irure occaecat sunt laboris do ullamco aute aliquip. Laborum incididunt sunt ad Lorem ad pariatur.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "111",
+          name: "Aidarus Badawy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
+      message: "Deserunt ipsum ullamco et culpa sint commodo.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "222",
+          name: "Swaleh Alwy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
+      message:
+          "Cillum enim sit nostrud excepteur aliqua labore ipsum do elit in culpa in culpa.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "222",
+          name: "Swaleh Alwy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
+      message:
+          "Ea minim non aliquip irure nulla esse minim minim dolore non reprehenderit voluptate.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "111",
+          name: "Aidarus Badawy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
+      message:
+          "Cillum enim sit nostrud excepteur aliqua labore ipsum do elit in culpa in culpa.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "222",
+          name: "Swaleh Alwy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
+      message:
+          "Ea minim non aliquip irure nulla esse minim minim dolore non reprehenderit voluptate.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "111",
+          name: "Aidarus Badawy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
+      message:
+          "Cillum enim sit nostrud excepteur aliqua labore ipsum do elit in culpa in culpa.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "222",
+          name: "Swaleh Alwy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
     ),
   ];
 }

@@ -20,7 +20,6 @@ class HomeView extends StackedView<HomeViewModel> {
       appBar: AppBar(
         elevation: 0,
         iconTheme: IconThemeData(color: theme.colorScheme.onBackground),
-        // backgroundColor: kcBlack,
         backgroundColor: Theme.of(context).colorScheme.background,
         title: ManropeText.medium(
             "Travel Kenya", 18, theme.colorScheme.onBackground),

@@ -71,11 +71,16 @@ class ActivityView extends StackedView<ActivityViewModel> {
             ListView.separated(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               itemBuilder: (context, index) {
-                return ChatCard(
-                  chat: viewModel.chatList[index],
-                  textColor: theme.colorScheme.onBackground,
-                  cardColor: theme.colorScheme.primary,
-                  textColorTwo: theme.colorScheme.surface,
+                return InkWell(
+                  onTap: () {
+                    viewModel.navigateToMessagePage(viewModel.chatList[index]);
+                  },
+                  child: ChatCard(
+                    chat: viewModel.chatList[index],
+                    textColor: theme.colorScheme.onBackground,
+                    cardColor: theme.colorScheme.primary,
+                    textColorTwo: theme.colorScheme.surface,
+                  ),
                 );
               },
               separatorBuilder: (context, index) {

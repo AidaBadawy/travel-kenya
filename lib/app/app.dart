@@ -1,3 +1,4 @@
+import 'package:travel_kenya/app/app_export.dart';
 import 'package:travel_kenya/services/chat_service.dart';
 import 'package:travel_kenya/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:travel_kenya/ui/dialogs/info_alert/info_alert_dialog.dart';
@@ -11,6 +12,7 @@ import 'package:travel_kenya/ui/views/activity/activity_view.dart';
 import 'package:travel_kenya/ui/views/trip/trip_view.dart';
 import 'package:travel_kenya/ui/views/onboarding/onboarding_view.dart';
 import 'package:travel_kenya/services/home_service.dart';
+import 'package:travel_kenya/ui/views/message/message_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -19,9 +21,10 @@ import 'package:travel_kenya/services/home_service.dart';
     MaterialRoute(page: StartupView),
     MaterialRoute(page: ExploreView),
     MaterialRoute(page: EventsView),
-    MaterialRoute(page: ActivityView),
+    CustomRoute(page: ActivityView),
     MaterialRoute(page: TripView),
     MaterialRoute(page: OnboardingView),
+    CustomRoute(page: MessageView),
 // @stacked-route
   ],
   dependencies: [

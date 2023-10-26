@@ -6,7 +6,6 @@ import 'package:travel_kenya/app/app.dialogs.dart';
 import 'package:travel_kenya/app/app.router.dart';
 import 'package:travel_kenya/app/app_export.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:travel_kenya/ui/views/activity/activity_view.dart';
 
 class HomeViewModel extends ReactiveViewModel {
   final _dialogService = locator<DialogService>();
@@ -107,24 +106,11 @@ class HomeViewModel extends ReactiveViewModel {
     );
   }
 
-  navigateToActivityPage() {
-    // _navigationService.navigateToActivityView(
-    //   null,
-    //   true,
-    //   {},
-    //   (context, animation, secondaryAnimation, child) {
-    //     // Define your transition function here.
-    //     // You can return a custom transition effect for the route.
-    //     return child;
-    //   },
-    //   // Transition.rightToLeft
-    // );
-
-    notifyListeners();
-
-    _navigationService.navigateWithTransition(const ActivityView(),
-        transitionStyle: Transition.rightToLeft);
-    notifyListeners();
+  navigateToActivityPage() async {
+    await _navigationService.navigateTo(
+      Routes.activityView,
+      transition: TransitionsBuilders.slideLeftWithFade,
+    );
   }
 
   navigateToExplorePage(context) {

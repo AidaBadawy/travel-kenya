@@ -44,9 +44,7 @@ class MessageCard extends StatelessWidget {
               ),
               child: RichText(
                 text: TextSpan(
-                  text: "${message.message}${{
-                    viewModel.messageList.length
-                  }} -- $index",
+                  text: message.message,
                   style: manropeMedium.copyWith(
                     color: theme.colorScheme.onPrimary,
                     fontSize: 13,
@@ -100,8 +98,7 @@ class MessageCard extends StatelessWidget {
                       ),
                       child: RichText(
                         text: TextSpan(
-                          text:
-                              "${message.message.trim()}{${viewModel.messageList.length}} -- $index",
+                          text: message.message.trim(),
                           style: manropeMedium.copyWith(
                             color: theme.colorScheme.onBackground,
                             fontSize: 13,

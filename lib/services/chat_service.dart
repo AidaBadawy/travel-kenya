@@ -89,10 +89,10 @@ class ChatService with ListenableServiceMixin {
       date: DateTime.now(),
       messageType: MessageType.text,
       sender: UserModel(
-          id: "222",
-          name: "Swaleh Alwy",
+          id: "333",
+          name: "Abdallah Salim",
           image:
-              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+              "https://images.unsplash.com/photo-1618641986557-1ecd230959aa?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"),
     ),
     MessageModel(
       id: "",
@@ -122,8 +122,32 @@ class ChatService with ListenableServiceMixin {
     ),
     MessageModel(
       id: "",
+      message: "Test Message",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "111",
+          name: "Aidarus Badawy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
       message:
           "Cillum enim sit nostrud excepteur aliqua labore ipsum do elit in culpa in culpa.",
+      attachment: [],
+      date: DateTime.now(),
+      messageType: MessageType.text,
+      sender: UserModel(
+          id: "222",
+          name: "Swaleh Alwy",
+          image:
+              "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+    ),
+    MessageModel(
+      id: "",
+      message: "Test.",
       attachment: [],
       date: DateTime.now(),
       messageType: MessageType.text,

@@ -5,11 +5,11 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i10;
+import 'package:flutter/material.dart' as _i11;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i12;
-import 'package:travel_kenya/model/chat_model.dart' as _i11;
+import 'package:stacked_services/stacked_services.dart' as _i13;
+import 'package:travel_kenya/model/chat_model.dart' as _i12;
 import 'package:travel_kenya/ui/views/activity/activity_view.dart' as _i6;
 import 'package:travel_kenya/ui/views/events/events_view.dart' as _i5;
 import 'package:travel_kenya/ui/views/explore/explore_view.dart' as _i4;
@@ -17,6 +17,7 @@ import 'package:travel_kenya/ui/views/home/home_view.dart' as _i2;
 import 'package:travel_kenya/ui/views/message/message_view.dart' as _i9;
 import 'package:travel_kenya/ui/views/onboarding/onboarding_view.dart' as _i8;
 import 'package:travel_kenya/ui/views/startup/startup_view.dart' as _i3;
+import 'package:travel_kenya/ui/views/trip/add_trip_view.dart' as _i10;
 import 'package:travel_kenya/ui/views/trip/trip_view.dart' as _i7;
 
 class Routes {
@@ -36,6 +37,8 @@ class Routes {
 
   static const messageView = '/message-view';
 
+  static const addTripView = '/add-trip-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -45,6 +48,7 @@ class Routes {
     tripView,
     onboardingView,
     messageView,
+    addTripView,
   };
 }
 
@@ -82,35 +86,39 @@ class StackedRouter extends _i1.RouterBase {
       Routes.messageView,
       page: _i9.MessageView,
     ),
+    _i1.RouteDef(
+      Routes.addTripView,
+      page: _i10.AddTripView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i10.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i10.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.ExploreView: (data) {
-      return _i10.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.ExploreView(),
         settings: data,
       );
     },
     _i5.EventsView: (data) {
-      return _i10.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.EventsView(),
         settings: data,
       );
     },
     _i6.ActivityView: (data) {
-      return _i10.PageRouteBuilder<dynamic>(
+      return _i11.PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
             const _i6.ActivityView(),
         settings: data,
@@ -121,22 +129,33 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i7.TripView: (data) {
-      return _i10.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.TripView(),
         settings: data,
       );
     },
     _i8.OnboardingView: (data) {
-      return _i10.MaterialPageRoute<dynamic>(
+      return _i11.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.OnboardingView(),
         settings: data,
       );
     },
     _i9.MessageView: (data) {
       final args = data.getArgs<MessageViewArguments>(nullOk: false);
-      return _i10.PageRouteBuilder<dynamic>(
+      return _i11.PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
             _i9.MessageView(key: args.key, chat: args.chat),
+        settings: data,
+        transitionsBuilder: data.transition ??
+            (context, animation, secondaryAnimation, child) {
+              return child;
+            },
+      );
+    },
+    _i10.AddTripView: (data) {
+      return _i11.PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const _i10.AddTripView(),
         settings: data,
         transitionsBuilder: data.transition ??
             (context, animation, secondaryAnimation, child) {
@@ -159,9 +178,9 @@ class MessageViewArguments {
     required this.chat,
   });
 
-  final _i10.Key? key;
+  final _i11.Key? key;
 
-  final _i11.ChatModel chat;
+  final _i12.ChatModel chat;
 
   @override
   String toString() {
@@ -180,7 +199,7 @@ class MessageViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i12.NavigationService {
+extension NavigatorStateExtension on _i13.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -280,8 +299,8 @@ extension NavigatorStateExtension on _i12.NavigationService {
   }
 
   Future<dynamic> navigateToMessageView({
-    _i10.Key? key,
-    required _i11.ChatModel chat,
+    _i11.Key? key,
+    required _i12.ChatModel chat,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -290,6 +309,20 @@ extension NavigatorStateExtension on _i12.NavigationService {
   }) async {
     return navigateTo<dynamic>(Routes.messageView,
         arguments: MessageViewArguments(key: key, chat: chat),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToAddTripView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.addTripView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -395,8 +428,8 @@ extension NavigatorStateExtension on _i12.NavigationService {
   }
 
   Future<dynamic> replaceWithMessageView({
-    _i10.Key? key,
-    required _i11.ChatModel chat,
+    _i11.Key? key,
+    required _i12.ChatModel chat,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -405,6 +438,20 @@ extension NavigatorStateExtension on _i12.NavigationService {
   }) async {
     return replaceWith<dynamic>(Routes.messageView,
         arguments: MessageViewArguments(key: key, chat: chat),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithAddTripView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.addTripView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

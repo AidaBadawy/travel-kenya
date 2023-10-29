@@ -9,6 +9,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:travel_kenya/ui/views/explore/explore_view.dart';
 import 'package:travel_kenya/ui/views/events/events_view.dart';
 import 'package:travel_kenya/ui/views/activity/activity_view.dart';
+import 'package:travel_kenya/ui/views/trip/add_trip_view.dart';
 import 'package:travel_kenya/ui/views/trip/trip_view.dart';
 import 'package:travel_kenya/ui/views/onboarding/onboarding_view.dart';
 import 'package:travel_kenya/services/home_service.dart';
@@ -25,6 +26,7 @@ import 'package:travel_kenya/ui/views/message/message_view.dart';
     MaterialRoute(page: TripView),
     MaterialRoute(page: OnboardingView),
     CustomRoute(page: MessageView),
+    CustomRoute(page: AddTripView),
 // @stacked-route
   ],
   dependencies: [

@@ -7,7 +7,7 @@ class EventsViewModel extends ReactiveViewModel {
   bool _isMasonry = false;
   bool get isMasonry => _isMasonry;
 
-  List<CategoryModel> get eventsList => _homeService.placesList
+  List<CategoryModel> get eventsList => _homeService.categoryList
       .where((element) => element.categoryType == CategoryType.event)
       .toList();
 

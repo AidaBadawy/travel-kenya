@@ -33,3 +33,8 @@ enum NotificationType {
   comment,
   request,
 }
+
+enum TripType {
+  personal,
+  group,
+}

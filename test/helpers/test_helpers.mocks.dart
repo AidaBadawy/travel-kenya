@@ -11,6 +11,8 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i2;
 import 'package:travel_kenya/model/category_model.dart' as _i7;
 import 'package:travel_kenya/model/notification_model.dart' as _i8;
+import 'package:travel_kenya/model/place_model.dart' as _i10;
+import 'package:travel_kenya/model/trip_model.dart' as _i9;
 import 'package:travel_kenya/services/home_service.dart' as _i6;
 
 // ignore_for_file: type=lint
@@ -692,17 +694,18 @@ class MockHomeService extends _i1.Mock implements _i6.HomeService {
       );
 
   @override
-  List<_i7.CategoryModel> get placesList => (super.noSuchMethod(
-        Invocation.getter(#placesList),
+  List<_i7.CategoryModel> get categoryList => (super.noSuchMethod(
+        Invocation.getter(#categoryList),
         returnValue: <_i7.CategoryModel>[],
         returnValueForMissingStub: <_i7.CategoryModel>[],
       ) as List<_i7.CategoryModel>);
 
   @override
-  set placesList(List<_i7.CategoryModel>? _placesList) => super.noSuchMethod(
+  set categoryList(List<_i7.CategoryModel>? _categoryList) =>
+      super.noSuchMethod(
         Invocation.setter(
-          #placesList,
-          _placesList,
+          #categoryList,
+          _categoryList,
         ),
         returnValueForMissingStub: null,
       );
@@ -720,6 +723,38 @@ class MockHomeService extends _i1.Mock implements _i6.HomeService {
         Invocation.setter(
           #notificationList,
           _notificationList,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  List<_i9.TripModel> get tripList => (super.noSuchMethod(
+        Invocation.getter(#tripList),
+        returnValue: <_i9.TripModel>[],
+        returnValueForMissingStub: <_i9.TripModel>[],
+      ) as List<_i9.TripModel>);
+
+  @override
+  set tripList(List<_i9.TripModel>? _tripList) => super.noSuchMethod(
+        Invocation.setter(
+          #tripList,
+          _tripList,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  List<_i10.PlaceModel> get placesList => (super.noSuchMethod(
+        Invocation.getter(#placesList),
+        returnValue: <_i10.PlaceModel>[],
+        returnValueForMissingStub: <_i10.PlaceModel>[],
+      ) as List<_i10.PlaceModel>);
+
+  @override
+  set placesList(List<_i10.PlaceModel>? _placesList) => super.noSuchMethod(
+        Invocation.setter(
+          #placesList,
+          _placesList,
         ),
         returnValueForMissingStub: null,
       );

@@ -20,6 +20,7 @@ const String icFolder = 'assets/icons/folder.svg';
 const String icMapPin = 'assets/icons/map_pin.svg';
 const String icMapPinFill = 'assets/icons/map_pin_filled.svg';
 const String icPolls = 'assets/icons/polls.svg';
+const String icEye = 'assets/icons/eye.svg';
 const String icCalendar = 'assets/icons/calendar.svg';
 // const String icRecord = 'assets/icons/record.svg';
 const String imLion = 'assets/images/lion.jpeg';

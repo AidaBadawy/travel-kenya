@@ -7,7 +7,7 @@ class ExploreViewModel extends ReactiveViewModel {
   bool _isMasonry = false;
   bool get isMasonry => _isMasonry;
 
-  List<CategoryModel> get exploreList => _homeService.placesList
+  List<CategoryModel> get exploreList => _homeService.categoryList
       .where((element) => element.categoryType == CategoryType.explore)
       .toList();
 

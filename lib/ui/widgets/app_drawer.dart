@@ -1,9 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_themes/stacked_themes.dart';
-import 'package:travel_kenya/ui/common/app_images.dart';
 import 'package:travel_kenya/ui/common/box_text.dart';
 import 'package:travel_kenya/ui/views/home/home_viewmodel.dart';
 
@@ -64,14 +63,16 @@ class AppDrawer extends StackedView<HomeViewModel> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
+                    height: 50,
+                    width: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
+                        image: const DecorationImage(
+                            fit: BoxFit.cover,
+                            image: CachedNetworkImageProvider(
+                                "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=2885&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")),
                         border: Border.all(
                             color: theme.colorScheme.onPrimaryContainer)),
-                    child: IconButton(
-                      onPressed: () => Scaffold.of(context).openEndDrawer(),
-                      icon: SvgPicture.asset(icEngland),
-                    ),
                   ),
                   // GestureDetector(
                   //   onTap: () {
@@ -141,6 +142,8 @@ class AppDrawer extends StackedView<HomeViewModel> {
                   //   child: SvgPicture.asset(icEngland),
                   // ),
                   Container(
+                    height: 50,
+                    width: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
                         border: Border.all(
@@ -153,6 +156,8 @@ class AppDrawer extends StackedView<HomeViewModel> {
                     ),
                   ),
                   Container(
+                    height: 50,
+                    width: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
                         border: Border.all(

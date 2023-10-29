@@ -7,7 +7,7 @@ environment:
   sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
-  autocomplete_textfield_ns: ^2.0.0
+  # autocomplete_textfield: ^2.0.0
   flutter:
     sdk: flutter
   flutter_staggered_animations: ^1.1.1
@@ -19,6 +19,7 @@ dependencies:
 
    # ui
   cached_network_image: ^3.3.0
+  flutter_typeahead: ^4.8.0
   animated_text_kit: ^4.2.2
   stacked_themes: ^0.3.12
   skeletons: ^0.0.3

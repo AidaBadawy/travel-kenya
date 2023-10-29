@@ -6,12 +6,14 @@ import 'package:travel_kenya/ui/common/box_text.dart';
 
 class CategoryWidget extends StatelessWidget {
   final CategoryModel place;
-  const CategoryWidget({super.key, required this.place});
+  final bool isLast;
+  const CategoryWidget({super.key, required this.place, required this.isLast});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 180,
+      margin: EdgeInsets.only(right: isLast ? 15 : 0),
       // height: 100,
       decoration: BoxDecoration(
         color: Colors.white,

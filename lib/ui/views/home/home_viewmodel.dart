@@ -1,4 +1,3 @@
-import 'package:autocomplete_textfield_ns/autocomplete_textfield_ns.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_themes/stacked_themes.dart';
 import 'package:travel_kenya/app/app.bottomsheets.dart';
@@ -6,6 +5,8 @@ import 'package:travel_kenya/app/app.dialogs.dart';
 import 'package:travel_kenya/app/app.router.dart';
 import 'package:travel_kenya/app/app_export.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:travel_kenya/model/trip_model.dart';
+import 'package:travel_kenya/ui/common/enums.dart';
 
 class HomeViewModel extends ReactiveViewModel {
   final _dialogService = locator<DialogService>();
@@ -13,7 +14,11 @@ class HomeViewModel extends ReactiveViewModel {
   final _navigationService = locator<NavigationService>();
   final _homeService = locator<HomeService>();
 
-  List<CategoryModel> get placesList => _homeService.placesList;
+  List<CategoryModel> get placesList => _homeService.categoryList;
+  List<TripModel> get tripList => _homeService.tripList;
+
+  TripType _tripType = TripType.personal;
+  TripType get tripType => _tripType;
 
   String get counterLabel => 'Counter is: $_counter';
 
@@ -22,8 +27,8 @@ class HomeViewModel extends ReactiveViewModel {
   bool _isRevealed = false;
   bool get isRevealed => _isRevealed;
 
-  final TextEditingController searchController = TextEditingController();
-  GlobalKey<AutoCompleteTextFieldState<String>> keyController = GlobalKey();
+  // final TextEditingController searchController = TextEditingController();
+  // GlobalKey<AutoCompleteTextFieldState<String>> keyController = GlobalKey();
 
   List<String> iconList = [
     icBeach,
@@ -44,9 +49,17 @@ class HomeViewModel extends ReactiveViewModel {
   List<CategoryModel> _categoryList = [];
   List<CategoryModel> get categoryList => _categoryList;
 
+  List<TripModel> _tripListData = [];
+  List<TripModel> get tripListData => _tripListData;
+
+  List<String> tabList = ["Personal", "Group"];
+
   initHome() {
     _categoryList =
         placesList.where((element) => element.tags.contains("Beach")).toList();
+    _tripListData = tripList
+        .where((element) => element.tripType == TripType.personal)
+        .toList();
   }
 
   setSelectedCategory(int index) {
@@ -81,6 +94,15 @@ class HomeViewModel extends ReactiveViewModel {
         break;
       default:
     }
+
+    notifyListeners();
+  }
+
+  setTripType(TripType value) {
+    _tripType = value;
+
+    _tripListData =
+        tripList.where((element) => element.tripType == value).toList();
 
     notifyListeners();
   }

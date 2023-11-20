@@ -165,6 +165,15 @@ class HomeViewModel extends ReactiveViewModel {
     notifyListeners();
   }
 
+  List<CategoryModel> getSuggestions(String query) {
+    List<CategoryModel> matches = placesList.toList();
+    // matches.addAll(placeList);
+
+    matches.retainWhere(
+        (s) => s.title.toLowerCase().contains(query.toLowerCase()));
+    return matches;
+  }
+
   @override
   List<ListenableServiceMixin> get listenableServices => [
         _homeService,
